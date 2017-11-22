@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.2.1.min%20.js"></script>
+
+    <style>
+        *{margin: 0; padding: 0;}
+        .wrapper{
+            width: 400px;
+            height: auto;
+        }
+        .wrapper img{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div id="ttt"></div>
+
+
+<script>
+
+    function Cat(url,name,count){
+        this.url = url
+        this.name = name
+        this.count = count;
+        let yhj =  `<ul class="wrapper" id="wrapper"><li>
+                        <h2 id="ctn">${name} 点击数量<em class="ss" >0</em></h2>
+                        <p><img src=${url} </p>
+                    </li> </ul>`
+        document.getElementById("ttt").innerHTML += yhj
+    }
+    Cat.prototype.ncount = function(){
+        this.count++;
+    }
+    let cats = [new Cat("unnamed.jpg","jerry",0),new Cat("test.jpg","tom",0)];
+    let sss = document.getElementsByClassName("wrapper");
+    for(var i = 0; i<cats.length;i++){
+        var num = cats[i];
+        sss[i].addEventListener('click',(function(numcopy){
+              return function(){
+                numcopy.ncount();
+                var hjk = numcopy.count;
+                $(this).find("em").text(hjk)
+              }
+        })(num))
+    }
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

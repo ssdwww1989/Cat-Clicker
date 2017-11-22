@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="#">1</a>
+<a href="#">2</a>
+<a href="#">3</a>
+<a href="#">4</a>
+
+<script>
+    // 清屏
+    document.body.innerHTML = '';
+    document.body.style.background="white";
+
+    var nums = [1,2,3];
+
+    // 让我们循环遍历数组中的所有数字
+    for (var i = 0; i < nums.length; i++) {
+
+
+        var num = nums[i];
+
+
+        var elem = document.createElement('div');
+        elem.textContent = num;
+
+
+        elem.addEventListener('click',(function(numcopy) {
+            return function(){
+                alert(numcopy)
+            }
+        })(num));
+
+
+        document.body.appendChild(elem);
+
+
+    };
+</script>
+
+</body>
+</html>
